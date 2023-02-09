@@ -7,6 +7,30 @@
     <title>Tech Blog</title>
 </head>
 <body>
-    
+    <div>
+        <header>
+        <h1>
+        <a href="/">The Tech Blog</a>
+      </h1>
+    <nav>
+        {{#if logged_in}}
+        <a href="/profile">Dashboard</a> |
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+      </nav>
+        </header>
+
+        <main class="container container-fluid mt-5">
+      {{{ body }}}
+    </main>
+    <footer>
+      
+    </footer>
+  </div>
+  {{#if logged_in}}
+  <script src="/public/js/logout.js"></script>
+  {{/if}}
 </body>
 </html>

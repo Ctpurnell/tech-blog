@@ -4,7 +4,6 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
-      // Get all projects and JOIN with user data
       const dashData = await Dash.findAll({
         include: [
           {
@@ -14,10 +13,8 @@ router.get('/', async (req, res) => {
         ],
       });
   
-      // Serialize data so the template can read it
       const dash = dashData.map((dashBoard) => dashBoard.get({ plain: true }));
   
-      // Pass serialized data and session flag into template
       res.render('homepage', { 
         dash, 
         logged_in: req.session.logged_in 
