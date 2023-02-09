@@ -1,8 +1,8 @@
-const sequelize = require('../config/connection');
-const { User, Dash } = require('../models');
+const sequelize = require("../config/connection");
+const { User, Dash } = require("../models");
 
-const userData = require('./userData.json');
-const projectData = require('./dashData.json');
+const userData = require("./userData.json");
+const dashData = require("./dashData.json");
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
