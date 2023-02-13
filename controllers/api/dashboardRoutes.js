@@ -1,21 +1,21 @@
-const router = require('express').Router();
-const { Dash } = require('../../models');
-const withAuth = require('../../utils/auth');
+const router = require("express").Router();
+const { Dash } = require("../../models");
+const withAuth = require("../../utils/auth");
 
-router.post('/', withAuth, async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
-    const newDashData = await Dash.create({
+    const newDash = await Dash.create({
       ...req.body,
       user_id: req.session.user_id,
     });
 
-    res.status(200).json(newDashData);
+    res.status(200).json(newDash);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => {
   try {
     const newDashData = await Dash.destroy({
       where: {
@@ -25,7 +25,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     });
 
     if (!newDashData) {
-      res.status(404).json({ message: 'No entry found with this id!' });
+      res.status(404).json({ message: "No entry found with this id!" });
       return;
     }
 
