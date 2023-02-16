@@ -37,7 +37,7 @@ router.get('/', async (req, res) => {
   
       const board = dashData.get({ plain: true });
   
-      res.render('dashboard', {
+      res.render('profile', {
         ...board,
         logged_in: req.session.logged_in
       });
@@ -48,7 +48,7 @@ router.get('/', async (req, res) => {
   
   router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-      res.redirect('/dashboard');
+      res.redirect('/profile');
       return;
     }
   
