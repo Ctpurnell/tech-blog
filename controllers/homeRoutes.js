@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
   
       const dash = dashData.map((dashBoard) => dashBoard.get({ plain: true }));
   
-      res.render('dashboard', { 
+      res.render('login', { 
         dash, 
         logged_in: req.session.logged_in 
       });
